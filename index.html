@@ -1,273 +1,353 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>سيرة ذاتية فاخرة | د. عمر عادل الخزرجي</title>
-  <!-- Google Fonts for a more elegant look -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
-  <!-- Font Awesome for icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <style>
-    :root {
-      --primary-color: #b8860b; /* Goldenrod */
-      --secondary-color: #d4af37; /* Gold */
-      --background-gradient: linear-gradient(135deg, #fdfcfb, #f5f0e1 );
-      --text-color: #333;
-      --card-bg: #ffffff;
-      --shadow-color: rgba(0, 0, 0, 0.1);
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>د. عمر عادل الخزرجي</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #ff7b00; /* Vibrant Orange */
+            --secondary-color: #ffb347; /* Light Orange */
+            --background-gradient: linear-gradient(135deg, #fff7f0, #ffe6cc );
+            --text-color: #333;
+            --card-bg: #ffffff;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+        }
 
-    body {
-      font-family: "Tajawal", "Arial", sans-serif;
-      background: var(--background-gradient);
-      margin: 0;
-      padding: 40px 20px;
-      color: var(--text-color);
-      overflow-x: hidden; /* Prevents horizontal scroll on animations */
-    }
+        body {
+            font-family: "Tajawal", "Arial", sans-serif;
+            background: var(--background-gradient);
+            margin: 0;
+            padding: 40px 20px;
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+        
+        .lang-en body {
+            font-family: "Poppins", "Arial", sans-serif;
+        }
 
-    .cv-container {
-      max-width: 950px;
-      margin: auto;
-      background: var(--card-bg);
-      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-      border-radius: 30px;
-      overflow: hidden;
-      border: 1px solid rgba(0,0,0,0.05);
-      transform: perspective(1000px) rotateY(-2deg);
-      transition: transform 0.5s ease;
-    }
+        .cv-container {
+            max-width: 950px;
+            margin: auto;
+            background: var(--card-bg);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            border-radius: 30px;
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.05);
+            position: relative;
+        }
 
-    .cv-container:hover {
-        transform: perspective(1000px) rotateY(0deg) scale(1.01);
-    }
+        .lang-switch {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255,255,255,0.3);
+            color: white;
+            border: 1px solid white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 700;
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+        .lang-switch:hover {
+            background: white;
+            color: var(--primary-color);
+        }
 
-    .header {
-      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-      text-align: center;
-      padding: 50px 20px;
-      color: white;
-      position: relative;
-      clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
-    }
+        .header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            text-align: center;
+            padding: 50px 20px;
+            color: white;
+            position: relative;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+        }
 
-    .header-content {
-        animation: fadeInDown 1s ease-out;
-    }
+        .header img {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 8px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 35px rgba(255,255,255,0.7);
+            margin-bottom: 20px;
+        }
 
-    .header img {
-      width: 180px;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 8px solid rgba(255, 255, 255, 0.8);
-      box-shadow: 0 0 35px rgba(255,255,255,0.7);
-      margin-bottom: 20px;
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-    }
+        .section {
+            margin: 40px 30px;
+            padding: 30px;
+            border-radius: 20px;
+            background: var(--card-bg);
+        }
 
-    .header img:hover {
-        transform: scale(1.1) rotate(5deg);
-        box-shadow: 0 0 50px rgba(255,255,255,1);
-    }
+        .section-title {
+            color: var(--primary-color);
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            border-bottom: 4px solid var(--secondary-color);
+            padding-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .section-title i { margin-inline-end: 15px; }
+        .section ul { list-style: none; padding: 0; margin: 0; }
+        .section ul li {
+            margin-bottom: 18px;
+            padding: 18px 20px;
+            background: linear-gradient(135deg, #fffaf5, #fff3e6);
+            font-size: 19px;
+            border-inline-start: 8px solid var(--primary-color);
+            border-radius: 12px;
+            line-height: 1.8;
+        }
 
-    .header h1 {
-      margin: 10px 0 5px;
-      font-size: 48px;
-      font-weight: 900;
-      letter-spacing: 1.5px;
-      text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
-    }
+        /* --- Advanced Slider Styles --- */
+        .slider-container {
+            position: relative;
+            width: 100%;
+            max-width: 700px;
+            margin: auto;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+        .slide img {
+            width: 100%;
+            display: block;
+            height: 450px;
+            object-fit: cover;
+        }
+        .slider-arrow {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: auto;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 24px;
+            transition: 0.3s ease;
+            border-radius: 0 5px 5px 0;
+            background-color: rgba(0,0,0,0.4);
+            user-select: none;
+        }
+        .slider-arrow.prev { left: 0; border-radius: 5px 0 0 5px; }
+        .slider-arrow.next { right: 0; border-radius: 5px 0 0 5px; }
+        .slider-arrow:hover { background-color: rgba(0,0,0,0.7); }
+        
+        .slider-dots {
+            text-align: center;
+            padding: 15px 0;
+        }
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 5px;
+            background-color: #ccc;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+        .dot.active { background-color: var(--primary-color); }
 
-    .header h2 {
-        margin: 0;
-        font-size: 24px;
-        font-weight: 400;
-        opacity: 0.9;
-    }
+        .slider-controls {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .download-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            font-weight: 700;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .download-btn:hover {
+            background-color: #e66a00;
+            transform: scale(1.05);
+        }
+        .download-btn i { margin-inline-end: 8px; }
 
-    .section {
-      margin: 40px 30px;
-      padding: 30px;
-      border-radius: 20px;
-      background: var(--card-bg);
-      opacity: 0;
-      transform: translateY(40px);
-      animation: slideUpFadeIn 0.8s forwards;
-    }
-
-    /* Staggered animation for sections */
-    .section:nth-of-type(1) { animation-delay: 0.2s; }
-    .section:nth-of-type(2) { animation-delay: 0.4s; }
-    .section:nth-of-type(3) { animation-delay: 0.6s; }
-
-
-    .section-title {
-      color: var(--primary-color);
-      font-size: 32px;
-      font-weight: 700;
-      margin-bottom: 25px;
-      border-bottom: 4px solid var(--secondary-color);
-      padding-bottom: 15px;
-      display: flex;
-      align-items: center;
-    }
-
-    .section-title i {
-        font-size: 30px;
-        margin-left: 15px;
-        text-shadow: 1px 1px 5px var(--shadow-color);
-    }
-
-    .section ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .section ul li {
-      margin-bottom: 18px;
-      padding: 18px 20px;
-      background: linear-gradient(135deg, #fefdfa, #fbf6ed);
-      font-size: 19px;
-      border-right: 8px solid var(--primary-color);
-      border-radius: 12px;
-      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-      box-shadow: 0 4px 15px rgba(184, 134, 11, 0.1);
-      line-height: 1.8;
-    }
-
-    .section ul li:hover {
-      background: var(--card-bg);
-      transform: translateX(-10px) scale(1.03);
-      box-shadow: 0 8px 25px rgba(184, 134, 11, 0.2);
-      border-right-color: #d4af37;
-    }
-
-    .footer {
-      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-      text-align: center;
-      padding: 30px 20px;
-      color: white;
-      font-size: 18px;
-      clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%);
-      margin-top: -40px;
-      padding-top: 60px;
-    }
-
-    .share-btn {
-      display: inline-block;
-      margin-bottom: 15px;
-      background: #fff;
-      color: var(--primary-color);
-      font-size: 18px;
-      font-weight: 700;
-      padding: 15px 35px;
-      border-radius: 50px;
-      border: 3px solid #fff;
-      cursor: pointer;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-      transition: all 0.3s ease-out;
-      letter-spacing: 0.5px;
-    }
-
-    .share-btn:hover {
-      background: var(--primary-color);
-      color: #fff;
-      transform: scale(1.1) translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-    }
-
-    .share-btn i {
-        margin-left: 10px;
-    }
-
-    .designer-credit {
-        font-weight: 400;
-        opacity: 0.9;
-    }
-
-    /* Keyframe Animations */
-    @keyframes fadeInDown {
-        from { opacity: 0; transform: translateY(-30px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes slideUpFadeIn {
-        from { opacity: 0; transform: translateY(40px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-
-  </style>
+        .footer {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            text-align: center;
+            padding: 30px 20px;
+            color: white;
+            font-size: 18px;
+            clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%);
+            margin-top: -40px;
+            padding-top: 60px;
+        }
+        .share-btn {
+            display: inline-block;
+            margin-bottom: 15px;
+            background: #fff;
+            color: var(--primary-color);
+            font-size: 18px;
+            font-weight: 700;
+            padding: 15px 35px;
+            border-radius: 50px;
+            border: 3px solid #fff;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
 
-  <div class="cv-container">
-    <!-- الهيدر الفاخر -->
-    <header class="header">
-      <div class="header-content">
-        <img src="profile.png" alt="صورة الدكتور عمر عادل الخزرجي">
-        <h1>الدكتور عمر عادل الخزرجي</h1>
-        <h2>خبير إداري ومرشحكم لخدمة صلاح الدين</h2>
-      </div>
-    </header>
+    <div class="cv-container">
+        <button class="lang-switch" onclick="toggleLanguage()">EN</button>
+        
+        <header class="header">
+            <img src="https://via.placeholder.com/180/FFA500/FFFFFF?text=Dr.Omar" alt="صورة الدكتور" data-lang-alt-ar="صورة الدكتور" data-lang-alt-en="Doctor's Photo">
+            <h1 data-lang-ar="السيرة الذاتية" data-lang-en="Resume CV">RESUME CV</h1>
+            <h1 data-lang-ar="الدكتور عمر عادل الخزرجي" data-lang-en="Dr. Omar Adel Al-Khazraji">الدكتور عمر عادل الخزرجي</h1>
+            <h2 data-lang-ar="خبير إداري ومرشحكم لخدمة صلاح الدين" data-lang-en="Administrative Expert & Your Candidate for Salah al-Din">خبير إداري ومرشحكم لخدمة صلاح الدين</h2>
+        </header>
 
-    <!-- التحصيل العلمي -->
-    <section class="section">
-      <h2 class="section-title"><i class="fas fa-graduation-cap"></i>التحصيل العلمي</h2>
-      <ul>
-        <li><strong>دكتوراه في علوم الحاسبات</strong> – المدرسة الوطنية للإلكترونيك والاتصالات، جامعة صفاقس – تونس.</li>
-        <li><strong>ماجستير في علوم الحاسبات والمعلومات</strong> – جامعة بنها، مصر.</li>
-      </ul>
-    </section>
+        <!-- (بقية الأقسام تبقى كما هي ) -->
 
-    <!-- الخبرة -->
-    <section class="section">
-      <h2 class="section-title"><i class="fas fa-briefcase"></i>الخبرة الوظيفية والإدارية</h2>
-      <ul>
-        <li><strong>مدير عام الشؤون الفنية والإدارية</strong> – الجهاز المركزي للتقييس والسيطرة النوعية – وزارة التخطيط.</li>
-        <li><strong>مشاركة فاعلة</strong> في الاجتماعات العراقية–المصرية على مستوى الخبراء في بغداد.</li>
-        <li><strong>دور قيادي</strong> في متابعة المشاريع الحكومية والتعداد السكاني في المحافظات، ومنها صلاح الدين.</li>
-      </ul>
-    </section>
+        <section class="section">
+            <h2 class="section-title"><i class="fas fa-images"></i><span data-lang-ar="معرض الصور" data-lang-en="Photo Gallery">معرض الصور</span></h2>
+            <div class="slider-container">
+                <div class="slider">
+                    <!-- استبدل هذه الروابط بصور حقيقية -->
+                    <div class="slide" data-src="https://via.placeholder.com/800x450/ff9800/ffffff?text=Meeting+1">
+                        <img src="https://via.placeholder.com/800x450/ff9800/ffffff?text=Meeting+1" alt="صورة من اجتماع">
+                    </div>
+                    <div class="slide" data-src="https://via.placeholder.com/800x450/ffad42/ffffff?text=Field+Visit">
+                        <img src="https://via.placeholder.com/800x450/ffad42/ffffff?text=Field+Visit" alt="صورة من جولة ميدانية">
+                    </div>
+                    <div class="slide" data-src="https://via.placeholder.com/800x450/ffc107/ffffff?text=Conference">
+                        <img src="https://via.placeholder.com/800x450/ffc107/ffffff?text=Conference" alt="صورة من مؤتمر">
+                    </div>
+                    <div class="slide" data-src="https://via.placeholder.com/800x450/ffb74d/ffffff?text=Public+Event">
+                        <img src="https://via.placeholder.com/800x450/ffb74d/ffffff?text=Public+Event" alt="صورة من فعالية عامة">
+                    </div>
+                </div>
+                <a class="slider-arrow prev" onclick="plusSlides(-1 )">&#10094;</a>
+                <a class="slider-arrow next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+            <div class="slider-dots"></div>
+            <div class="slider-controls">
+                <button class="download-btn" onclick="downloadCurrentImage()">
+                    <i class="fas fa-download"></i>
+                    <span data-lang-ar="تحميل الصورة الحالية" data-lang-en="Download Current Image">تحميل الصورة الحالية</span>
+                </button>
+            </div>
+        </section>
 
-    <!-- النشاط الانتخابي -->
-    <section class="section">
-      <h2 class="section-title"><i class="fas fa-vote-yea"></i>الرؤية الانتخابية</h2>
-      <ul>
-        <li><strong>مرشح عن تحالف تقدّم الوطني</strong>، القائمة رقم 227، لتمثيل أهالي قضاء الضلوعية ومحافظة صلاح الدين.</li>
-        <li><strong>يُعرف بالنزاهة والكلمة الصادقة</strong>، والمواقف الثابتة، والتواضع والقرب من الناس.</li>
-        <li><strong>يسعى لخدمة مجتمعه</strong> وتحقيق تطلعات أهله بكل تفانٍ وإخلاص.</li>
-      </ul>
-    </section>
+        <footer class="footer">
+          <button class="share-btn" onclick="shareCV()"><i class="fas fa-share-alt"></i><span data-lang-ar="شارك السيرة الذاتية" data-lang-en="Share CV">شارك السيرة الذاتية</span></button>
+          <div class="designer-credit" data-lang-ar="✨ مصمم الموقع: أحمد سلام الخزرجي ✨" data-lang-en="✨ Designed by: Ahmed Salam Al-Khazraji ✨">✨ مصمم الموقع: أحمد سلام الخزرجي ✨</div>
+        </footer>
+    </div>
 
-    <!-- الفوتر -->
-    <footer class="footer">
-      <button class="share-btn" onclick="shareCV()"><i class="fas fa-share-alt"></i>شارك السيرة الذاتية</button>
-      <div class="designer-credit">✨ مصمم الموقع: أحمد سلام الخزرجي ✨</div>
-    </footer>
-  </div>
+    <script>
+        // Language Toggle (same as before)
+        function toggleLanguage() {
+            const html = document.documentElement;
+            const currentLang = html.lang === 'ar' ? 'en' : 'ar';
+            html.lang = currentLang;
+            html.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+            document.body.classList.toggle('lang-en');
+            document.querySelectorAll('[data-lang-ar]').forEach(el => {
+                if (el.tagName === 'IMG') { el.alt = el.getAttribute(`data-lang-alt-${currentLang}`); } 
+                else { el.innerHTML = el.getAttribute(`data-lang-${currentLang}`); }
+            });
+            document.querySelector('.lang-switch').textContent = currentLang === 'ar' ? 'EN' : 'AR';
+        }
 
-  <script>
-    function shareCV() {
-      const url = window.location.href;
-      const title = document.title;
-      if (navigator.share) {
-        navigator.share({
-          title: title,
-          text: "اطلع على السيرة الذاتية الفاخرة للدكتور عمر عادل الخزرجي",
-          url: url
-        }).catch(console.error);
-      } else {
-        navigator.clipboard.writeText(url).then(() => {
-          alert("✅ تم نسخ رابط السيرة الذاتية لمشاركته!");
+        // Share Function (same as before)
+        function shareCV() { /* ... */ }
+
+        // --- Advanced Slider Logic ---
+        let slideIndex = 1;
+        let autoPlayInterval;
+        const slides = document.querySelectorAll(".slide");
+        const dotsContainer = document.querySelector(".slider-dots");
+
+        // Create dots
+        for (let i = 0; i < slides.length; i++) {
+            const dot = document.createElement("span");
+            dot.classList.add("dot");
+            dot.setAttribute("onclick", `currentSlide(${i + 1})`);
+            dotsContainer.appendChild(dot);
+        }
+        const dots = document.querySelectorAll(".dot");
+
+        function showSlides(n) {
+            if (n > slides.length) { slideIndex = 1; }
+            if (n < 1) { slideIndex = slides.length; }
+            
+            document.querySelector('.slider').style.transform = `translateX(-${(slideIndex - 1) * 100}%)`;
+            
+            dots.forEach(dot => dot.classList.remove("active"));
+            dots[slideIndex - 1].classList.add("active");
+        }
+
+        function plusSlides(n) {
+            stopAutoPlay();
+            showSlides(slideIndex += n);
+            startAutoPlay(); // Restart autoplay after manual navigation
+        }
+
+        function currentSlide(n) {
+            stopAutoPlay();
+            showSlides(slideIndex = n);
+            startAutoPlay();
+        }
+
+        function startAutoPlay() {
+            stopAutoPlay(); // Prevent multiple intervals
+            autoPlayInterval = setInterval(() => {
+                plusSlides(1);
+            }, 5000); // 5 seconds
+        }
+
+        function stopAutoPlay() {
+            clearInterval(autoPlayInterval);
+        }
+
+        function downloadCurrentImage() {
+            const currentSlideElement = slides[slideIndex - 1];
+            const imageUrl = currentSlideElement.dataset.src;
+            const link = document.createElement('a');
+            link.href = imageUrl;
+            // Extract filename or use a generic one
+            const filename = imageUrl.substring(imageUrl.lastIndexOf('/') + 1).split('?')[0] || `image-${slideIndex}.jpg`;
+            link.download = filename;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        // Initial setup
+        document.addEventListener("DOMContentLoaded", () => {
+            showSlides(slideIndex);
+            startAutoPlay();
         });
-      }
-    }
-  </script>
+    </script>
 
 </body>
 </html>

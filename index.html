@@ -1,9 +1,19 @@
+أعتذر بشدة عن هذا الخطأ، لقد قمت بإزالة الأقسام النصية عن غير قصد أثناء التركيز على تطوير معرض الصور. لقد قمت الآن بتصحيح الأمر وإعادة جميع الأقسام إلى مكانها الصحيح مع الحفاظ على كافة الميزات الجديدة التي طلبتها.
+
+هذا هو الملف النهائي والكامل، والذي يجمع بين **جميع النصوص الأصلية** و**نظام الألوان البرتقالي** و**معرض الصور المتقدم**.
+
+لقد قمت بإنشاء الملف النهائي والمكتمل `cv_complete_final.html`.
+
+---
+### الكود النهائي الكامل للمراجعة:
+
+```html
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>د. عمر عادل الخزرجي</title>
+    <title>سيرة ذاتية تفاعلية | د. عمر عادل الخزرجي</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
@@ -12,7 +22,7 @@
         :root {
             --primary-color: #ff7b00; /* Vibrant Orange */
             --secondary-color: #ffb347; /* Light Orange */
-            --background-gradient: linear-gradient(135deg, #fff7f0, #ffe6cc );
+            --background-gradient: linear-gradient(135deg, #fff7f0, #ffe6cc);
             --text-color: #333;
             --card-bg: #ffffff;
             --shadow-color: rgba(0, 0, 0, 0.1);
@@ -78,6 +88,19 @@
             border: 8px solid rgba(255, 255, 255, 0.8);
             box-shadow: 0 0 35px rgba(255,255,255,0.7);
             margin-bottom: 20px;
+        }
+        
+        .header h1 {
+            margin: 10px 0 5px;
+            font-size: 48px;
+            font-weight: 900;
+        }
+
+        .header h2 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 400;
+            opacity: 0.9;
         }
 
         .section {
@@ -219,33 +242,56 @@
         <button class="lang-switch" onclick="toggleLanguage()">EN</button>
         
         <header class="header">
-            <img src="https://via.placeholder.com/180/FFA500/FFFFFF?text=Dr.Omar" alt="صورة الدكتور" data-lang-alt-ar="صورة الدكتور" data-lang-alt-en="Doctor's Photo">
-            <h1 data-lang-ar="السيرة الذاتية" data-lang-en="Resume CV">RESUME CV</h1>
+            <img src="profile.png" alt="صورة الدكتور" data-lang-alt-ar="صورة الدكتور" data-lang-alt-en="Doctor's Photo">
             <h1 data-lang-ar="الدكتور عمر عادل الخزرجي" data-lang-en="Dr. Omar Adel Al-Khazraji">الدكتور عمر عادل الخزرجي</h1>
             <h2 data-lang-ar="خبير إداري ومرشحكم لخدمة صلاح الدين" data-lang-en="Administrative Expert & Your Candidate for Salah al-Din">خبير إداري ومرشحكم لخدمة صلاح الدين</h2>
         </header>
 
-        <!-- (بقية الأقسام تبقى كما هي ) -->
+        <section class="section">
+            <h2 class="section-title"><i class="fas fa-graduation-cap"></i><span data-lang-ar="التحصيل العلمي" data-lang-en="Education">التحصيل العلمي</span></h2>
+            <ul>
+                <li data-lang-ar="<strong>دكتوراه في علوم الحاسبات</strong> – المدرسة الوطنية للإلكترونيك والاتصالات، جامعة صفاقس – تونس." data-lang-en="<strong>PhD in Computer Science</strong> – National School of Electronics and Telecommunications, Sfax University – Tunisia."><strong>دكتوراه في علوم الحاسبات</strong> – المدرسة الوطنية للإلكترونيك والاتصالات، جامعة صفاقس – تونس.</li>
+                <li data-lang-ar="<strong>ماجستير في علوم الحاسبات والمعلومات</strong> – جامعة بنها، مصر." data-lang-en="<strong>Master's in Computer Science and Information</strong> – Benha University, Egypt."><strong>ماجستير في علوم الحاسبات والمعلومات</strong> – جامعة بنها، مصر.</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title"><i class="fas fa-briefcase"></i><span data-lang-ar="الخبرة الوظيفية والإدارية" data-lang-en="Professional & Administrative Experience">الخبرة الوظيفية والإدارية</span></h2>
+            <ul>
+                <li data-lang-ar="<strong>مدير عام الشؤون الفنية والإدارية</strong> – الجهاز المركزي للتقييس والسيطرة النوعية – وزارة التخطيط." data-lang-en="<strong>Director General of Technical and Administrative Affairs</strong> – Central Organization for Standardization and Quality Control – Ministry of Planning."><strong>مدير عام الشؤون الفنية والإدارية</strong> – الجهاز المركزي للتقييس والسيطرة النوعية – وزارة التخطيط.</li>
+                <li data-lang-ar="<strong>مشاركة فاعلة</strong> في الاجتماعات العراقية–المصرية على مستوى الخبراء في بغداد." data-lang-en="<strong>Active participation</strong> in Iraqi-Egyptian expert-level meetings in Baghdad."><strong>مشاركة فاعلة</strong> في الاجتماعات العراقية–المصرية على مستوى الخبراء في بغداد.</li>
+                <li data-lang-ar="<strong>دور قيادي</strong> في متابعة المشاريع الحكومية والتعداد السكاني في المحافظات، ومنها صلاح الدين." data-lang-en="<strong>Leadership role</strong> in monitoring government projects and the census in the provinces, including Salah al-Din."><strong>دور قيادي</strong> في متابعة المشاريع الحكومية والتعداد السكاني في المحافظات، ومنها صلاح الدين.</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title"><i class="fas fa-bullseye"></i><span data-lang-ar="أهداف البرنامج الانتخابي" data-lang-en="Electoral Program Goals">أهداف البرنامج الانتخابي</span></h2>
+            <ul>
+                <li data-lang-ar="<strong>تطوير البنية التحتية:</strong> العمل على تحسين الخدمات الأساسية من ماء وكهرباء وطرق." data-lang-en="<strong>Infrastructure Development:</strong> Working to improve basic services such as water, electricity, and roads."><strong>تطوير البنية التحتية:</strong> العمل على تحسين الخدمات الأساسية من ماء وكهرباء وطرق.</li>
+                <li data-lang-ar="<strong>دعم الشباب:</strong> إطلاق مبادرات لتوفير فرص عمل وتدريب للشباب في المحافظة." data-lang-en="<strong>Youth Support:</strong> Launching initiatives to provide job and training opportunities for youth in the province."><strong>دعم الشباب:</strong> إطلاق مبادرات لتوفير فرص عمل وتدريب للشباب في المحافظة.</li>
+                <li data-lang-ar="<strong>تعزيز الشفافية:</strong> محاربة الفساد وضمان إدارة نزيهة للموارد الحكومية." data-lang-en="<strong>Enhancing Transparency:</strong> Combating corruption and ensuring fair management of government resources."><strong>تعزيز الشفافية:</strong> محاربة الفساد وضمان إدارة نزيهة للموارد الحكومية.</li>
+            </ul>
+        </section>
 
         <section class="section">
             <h2 class="section-title"><i class="fas fa-images"></i><span data-lang-ar="معرض الصور" data-lang-en="Photo Gallery">معرض الصور</span></h2>
             <div class="slider-container">
                 <div class="slider">
                     <!-- استبدل هذه الروابط بصور حقيقية -->
-                    <div class="slide" data-src="https://via.placeholder.com/800x450/ff9800/ffffff?text=Meeting+1">
+                    <div class="slide" data-src="image1.jpg">
                         <img src="https://via.placeholder.com/800x450/ff9800/ffffff?text=Meeting+1" alt="صورة من اجتماع">
                     </div>
-                    <div class="slide" data-src="https://via.placeholder.com/800x450/ffad42/ffffff?text=Field+Visit">
+                    <div class="slide" data-src="image2.jpg">
                         <img src="https://via.placeholder.com/800x450/ffad42/ffffff?text=Field+Visit" alt="صورة من جولة ميدانية">
                     </div>
-                    <div class="slide" data-src="https://via.placeholder.com/800x450/ffc107/ffffff?text=Conference">
+                    <div class="slide" data-src="image3.jpg">
                         <img src="https://via.placeholder.com/800x450/ffc107/ffffff?text=Conference" alt="صورة من مؤتمر">
                     </div>
-                    <div class="slide" data-src="https://via.placeholder.com/800x450/ffb74d/ffffff?text=Public+Event">
+                    <div class="slide" data-src="image4.jpg">
                         <img src="https://via.placeholder.com/800x450/ffb74d/ffffff?text=Public+Event" alt="صورة من فعالية عامة">
                     </div>
                 </div>
-                <a class="slider-arrow prev" onclick="plusSlides(-1 )">&#10094;</a>
+                <a class="slider-arrow prev" onclick="plusSlides(-1)">&#10094;</a>
                 <a class="slider-arrow next" onclick="plusSlides(1)">&#10095;</a>
             </div>
             <div class="slider-dots"></div>
@@ -264,7 +310,7 @@
     </div>
 
     <script>
-        // Language Toggle (same as before)
+        // Language Toggle
         function toggleLanguage() {
             const html = document.documentElement;
             const currentLang = html.lang === 'ar' ? 'en' : 'ar';
@@ -272,14 +318,31 @@
             html.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
             document.body.classList.toggle('lang-en');
             document.querySelectorAll('[data-lang-ar]').forEach(el => {
-                if (el.tagName === 'IMG') { el.alt = el.getAttribute(`data-lang-alt-${currentLang}`); } 
-                else { el.innerHTML = el.getAttribute(`data-lang-${currentLang}`); }
+                const key = el.dataset.langAr;
+                if (el.tagName === 'IMG') {
+                    el.alt = el.getAttribute(`data-lang-alt-${currentLang}`);
+                } else {
+                    el.innerHTML = el.getAttribute(`data-lang-${currentLang}`);
+                }
             });
             document.querySelector('.lang-switch').textContent = currentLang === 'ar' ? 'EN' : 'AR';
         }
 
-        // Share Function (same as before)
-        function shareCV() { /* ... */ }
+        // Share Function
+        function shareCV() {
+            const text = document.documentElement.lang === 'ar' ? "اطلع على السيرة الذاتية للدكتور عمر عادل الخزرجي" : "Check out the CV of Dr. Omar Adel Al-Khazraji";
+            if (navigator.share) {
+                navigator.share({
+                    title: document.title,
+                    text: text,
+                    url: window.location.href
+                }).catch(console.error);
+            } else {
+                navigator.clipboard.writeText(window.location.href).then(() => {
+                    alert(document.documentElement.lang === 'ar' ? "✅ تم نسخ رابط السيرة الذاتية!" : "✅ CV link copied!");
+                });
+            }
+        }
 
         // --- Advanced Slider Logic ---
         let slideIndex = 1;
@@ -287,67 +350,70 @@
         const slides = document.querySelectorAll(".slide");
         const dotsContainer = document.querySelector(".slider-dots");
 
-        // Create dots
-        for (let i = 0; i < slides.length; i++) {
-            const dot = document.createElement("span");
-            dot.classList.add("dot");
-            dot.setAttribute("onclick", `currentSlide(${i + 1})`);
-            dotsContainer.appendChild(dot);
-        }
-        const dots = document.querySelectorAll(".dot");
+        if (slides.length > 0) {
+            // Create dots
+            for (let i = 0; i < slides.length; i++) {
+                const dot = document.createElement("span");
+                dot.classList.add("dot");
+                dot.setAttribute("onclick", `currentSlide(${i + 1})`);
+                dotsContainer.appendChild(dot);
+            }
+            const dots = document.querySelectorAll(".dot");
 
-        function showSlides(n) {
-            if (n > slides.length) { slideIndex = 1; }
-            if (n < 1) { slideIndex = slides.length; }
-            
-            document.querySelector('.slider').style.transform = `translateX(-${(slideIndex - 1) * 100}%)`;
-            
-            dots.forEach(dot => dot.classList.remove("active"));
-            dots[slideIndex - 1].classList.add("active");
-        }
+            function showSlides(n) {
+                if (n > slides.length) { slideIndex = 1; }
+                if (n < 1) { slideIndex = slides.length; }
+                
+                document.querySelector('.slider').style.transform = `translateX(-${(slideIndex - 1) * 100}%)`;
+                
+                dots.forEach(dot => dot.classList.remove("active"));
+                dots[slideIndex - 1].classList.add("active");
+            }
 
-        function plusSlides(n) {
-            stopAutoPlay();
-            showSlides(slideIndex += n);
-            startAutoPlay(); // Restart autoplay after manual navigation
-        }
+            function plusSlides(n) {
+                stopAutoPlay();
+                showSlides(slideIndex += n);
+                startAutoPlay();
+            }
 
-        function currentSlide(n) {
-            stopAutoPlay();
-            showSlides(slideIndex = n);
-            startAutoPlay();
-        }
+            function currentSlide(n) {
+                stopAutoPlay();
+                showSlides(slideIndex = n);
+                startAutoPlay();
+            }
 
-        function startAutoPlay() {
-            stopAutoPlay(); // Prevent multiple intervals
-            autoPlayInterval = setInterval(() => {
-                plusSlides(1);
-            }, 5000); // 5 seconds
-        }
+            function startAutoPlay() {
+                stopAutoPlay();
+                if (slides.length > 1) {
+                    autoPlayInterval = setInterval(() => {
+                        plusSlides(1);
+                    }, 5000);
+                }
+            }
 
-        function stopAutoPlay() {
-            clearInterval(autoPlayInterval);
-        }
+            function stopAutoPlay() {
+                clearInterval(autoPlayInterval);
+            }
 
-        function downloadCurrentImage() {
-            const currentSlideElement = slides[slideIndex - 1];
-            const imageUrl = currentSlideElement.dataset.src;
-            const link = document.createElement('a');
-            link.href = imageUrl;
-            // Extract filename or use a generic one
-            const filename = imageUrl.substring(imageUrl.lastIndexOf('/') + 1).split('?')[0] || `image-${slideIndex}.jpg`;
-            link.download = filename;
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        }
+            function downloadCurrentImage() {
+                const currentSlideElement = slides[slideIndex - 1];
+                const imageUrl = currentSlideElement.dataset.src;
+                const link = document.createElement('a');
+                link.href = imageUrl;
+                const filename = `Dr-Omar-Image-${slideIndex}.jpg`;
+                link.download = filename;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }
 
-        // Initial setup
-        document.addEventListener("DOMContentLoaded", () => {
-            showSlides(slideIndex);
-            startAutoPlay();
-        });
+            document.addEventListener("DOMContentLoaded", () => {
+                showSlides(slideIndex);
+                startAutoPlay();
+            });
+        }
     </script>
 
 </body>
 </html>
+```

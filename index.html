@@ -3,407 +3,689 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>سيرة ذاتية | د. عمر عادل الخزرجي</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>نظام الأسماء المحجوزة</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root {
-            --primary-color: #ff7b00; /* Vibrant Orange */
-            --secondary-color: #ffb347; /* Light Orange */
-            --background-gradient: linear-gradient(135deg, #fff7f0, #ffe6cc);
-            --text-color: #333;
-            --card-bg: #ffffff;
-            --shadow-color: rgba(0, 0, 0, 0.1);
-        }
-
-        body {
-            font-family: "Tajawal", "Arial", sans-serif;
-            background: var(--background-gradient);
+        * {
             margin: 0;
-            padding: 40px 20px;
-            color: var(--text-color);
-            overflow-x: hidden;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
-        .lang-en body {
-            font-family: "Poppins", "Arial", sans-serif;
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --success-color: #27ae60;
+            --warning-color: #f39c12;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --border-radius: 12px;
+            --transition: all 0.3s ease;
         }
-
-        .cv-container {
-            max-width: 950px;
-            margin: auto;
-            background: var(--card-bg);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-            border-radius: 30px;
-            overflow: hidden;
-            border: 1px solid rgba(0,0,0,0.05);
-            position: relative;
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: var(--dark-color);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
         }
-
-        .lang-switch {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            background: rgba(255,255,255,0.3);
-            color: white;
-            border: 1px solid white;
-            padding: 8px 15px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-weight: 700;
-            z-index: 10;
-            transition: all 0.3s ease;
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
         }
-        .lang-switch:hover {
-            background: white;
-            color: var(--primary-color);
-        }
-
-        .header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        
+        header {
             text-align: center;
-            padding: 50px 20px;
-            color: white;
-            position: relative;
-            clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+            padding: 30px 20px;
+            margin-bottom: 30px;
         }
-
-        .header img {
-            width: 180px;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 8px solid rgba(255, 255, 255, 0.8);
-            box-shadow: 0 0 35px rgba(255,255,255,0.7);
+        
+        header h1 {
+            font-size: 2.8rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        header h1:after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 4px;
+            background: linear-gradient(to right, var(--secondary-color), var(--accent-color));
+            bottom: -10px;
+            left: 20%;
+            border-radius: 2px;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            color: #555;
+            max-width: 600px;
+            margin: 20px auto 0;
+        }
+        
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        @media (max-width: 992px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* بطاقة إدخال الحجز */
+        .reservation-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            height: fit-content;
+        }
+        
+        .reservation-card h2 {
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--light-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .reservation-card h2 i {
+            color: var(--secondary-color);
+        }
+        
+        .form-group {
             margin-bottom: 20px;
         }
         
-        .header h1 {
-            margin: 10px 0 5px;
-            font-size: 48px;
-            font-weight: 900;
-        }
-
-        .header h2 {
-            margin: 0;
-            font-size: 24px;
-            font-weight: 400;
-            opacity: 0.9;
-        }
-
-        .section {
-            margin: 40px 30px;
-            padding: 30px;
-            border-radius: 20px;
-            background: var(--card-bg);
-        }
-
-        .section-title {
-            color: var(--primary-color);
-            font-size: 32px;
-            font-weight: 700;
-            margin-bottom: 25px;
-            border-bottom: 4px solid var(--secondary-color);
-            padding-bottom: 15px;
-            display: flex;
-            align-items: center;
-        }
-        .section-title i { margin-inline-end: 15px; }
-        .section ul { list-style: none; padding: 0; margin: 0; }
-        .section ul li {
-            margin-bottom: 18px;
-            padding: 18px 20px;
-            background: linear-gradient(135deg, #fffaf5, #fff3e6);
-            font-size: 19px;
-            border-inline-start: 8px solid var(--primary-color);
-            border-radius: 12px;
-            line-height: 1.8;
-        }
-
-        /* --- Advanced Slider Styles --- */
-        .slider-container {
-            position: relative;
-            width: 100%;
-            max-width: 700px;
-            margin: auto;
-            overflow: hidden;
-            border-radius: 20px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-        }
-        .slider {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
-        .slide {
-            min-width: 100%;
-            box-sizing: border-box;
-        }
-        .slide img {
-            width: 100%;
+        .form-group label {
             display: block;
-            height: 450px;
-            object-fit: cover;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark-color);
         }
-        .slider-arrow {
-            cursor: pointer;
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: auto;
-            padding: 16px;
-            color: white;
-            font-weight: bold;
-            font-size: 24px;
-            transition: 0.3s ease;
-            border-radius: 0 5px 5px 0;
-            background-color: rgba(0,0,0,0.4);
-            user-select: none;
-        }
-        .slider-arrow.prev { left: 0; border-radius: 5px 0 0 5px; }
-        .slider-arrow.next { right: 0; border-radius: 5px 0 0 5px; }
-        .slider-arrow:hover { background-color: rgba(0,0,0,0.7); }
         
-        .slider-dots {
-            text-align: center;
-            padding: 15px 0;
+        .form-control {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: var(--transition);
         }
-        .dot {
-            cursor: pointer;
-            height: 15px;
-            width: 15px;
-            margin: 0 5px;
-            background-color: #ccc;
-            border-radius: 50%;
+        
+        .form-control:focus {
+            border-color: var(--secondary-color);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+        }
+        
+        .combo-box {
+            position: relative;
+        }
+        
+        .combo-box select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%232c3e50' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: left 16px center;
+            padding-left: 40px;
+        }
+        
+        .btn {
             display: inline-block;
-            transition: background-color 0.3s ease;
-        }
-        .dot.active { background-color: var(--primary-color); }
-
-        .slider-controls {
-            text-align: center;
-            margin-top: 20px;
-        }
-        .download-btn {
-            background-color: var(--primary-color);
+            padding: 14px 28px;
+            background: linear-gradient(to right, var(--secondary-color), #2980b9);
             color: white;
             border: none;
-            padding: 12px 25px;
-            font-size: 16px;
-            font-weight: 700;
-            border-radius: 25px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: var(--transition);
+            width: 100%;
+            margin-top: 10px;
         }
-        .download-btn:hover {
-            background-color: #e66a00;
-            transform: scale(1.05);
+        
+        .btn:hover {
+            background: linear-gradient(to right, #2980b9, var(--secondary-color));
+            transform: translateY(-3px);
+            box-shadow: 0 7px 15px rgba(52, 152, 219, 0.3);
         }
-        .download-btn i { margin-inline-end: 8px; }
-
-        .footer {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            text-align: center;
-            padding: 30px 20px;
-            color: white;
-            font-size: 18px;
-            clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%);
-            margin-top: -40px;
-            padding-top: 60px;
+        
+        .btn:active {
+            transform: translateY(0);
         }
-        .share-btn {
-            display: inline-block;
-            margin-bottom: 15px;
-            background: #fff;
+        
+        /* قائمة الحجوزات */
+        .reservations-container {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+        }
+        
+        .reservations-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--light-color);
+        }
+        
+        .reservations-header h2 {
             color: var(--primary-color);
-            font-size: 18px;
-            font-weight: 700;
-            padding: 15px 35px;
-            border-radius: 50px;
-            border: 3px solid #fff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .reservations-header h2 i {
+            color: var(--accent-color);
+        }
+        
+        .stats {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .stat-item {
+            background: var(--light-color);
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+        
+        .reservations-list {
+            max-height: 500px;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+        
+        .reservation-item {
+            background: #f9f9f9;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-right: 5px solid var(--secondary-color);
+            transition: var(--transition);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .reservation-item:hover {
+            transform: translateX(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .reservation-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        
+        .reservation-details {
+            display: flex;
+            gap: 20px;
+            margin-top: 8px;
+            color: #666;
+        }
+        
+        .reservation-details span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .reservation-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .action-btn {
+            padding: 8px 15px;
+            border-radius: 6px;
+            border: none;
             cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+        
+        .edit-btn {
+            background-color: var(--warning-color);
+            color: white;
+        }
+        
+        .delete-btn {
+            background-color: var(--accent-color);
+            color: white;
+        }
+        
+        .action-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+            color: #777;
+        }
+        
+        .empty-state i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: #ddd;
+        }
+        
+        /* تذييل الصفحة */
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            color: #666;
+            border-top: 1px solid #ddd;
+        }
+        
+        /* تأثيرات للقائمة */
+        .reservations-list::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .reservations-list::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        
+        .reservations-list::-webkit-scrollbar-thumb {
+            background: var(--secondary-color);
+            border-radius: 10px;
+        }
+        
+        /* رسائل التنبيه */
+        .alert {
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            animation: fadeIn 0.5s;
+        }
+        
+        .alert-success {
+            background-color: rgba(39, 174, 96, 0.1);
+            border-right: 5px solid var(--success-color);
+            color: var(--success-color);
+        }
+        
+        .alert-error {
+            background-color: rgba(231, 76, 60, 0.1);
+            border-right: 5px solid var(--accent-color);
+            color: var(--accent-color);
+        }
+        
+        .close-alert {
+            background: transparent;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: inherit;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* تأثيرات للبطاقات */
+        .pulse {
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(52, 152, 219, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(52, 152, 219, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(52, 152, 219, 0); }
+        }
+        
+        /* تصميم متجاوب */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .main-content {
+                gap: 20px;
+            }
+            
+            .reservation-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            
+            .reservation-actions {
+                align-self: flex-end;
+            }
+            
+            .stats {
+                flex-direction: column;
+                gap: 8px;
+            }
         }
     </style>
 </head>
 <body>
-
-    <div class="cv-container">
-        <button class="lang-switch" onclick="toggleLanguage()">EN</button>
-        
-        <header class="header">
-            <img src="profile.png" alt="صورة الدكتور" data-lang-alt-ar="صورة الدكتور" data-lang-alt-en="Doctor's Photo">
-            <h1 data-lang-ar="الدكتور عمر عادل الخزرجي" data-lang-en="Dr. Omar Adel Al-Khazraji">الدكتور عمر عادل الخزرجي</h1>
-            <h2 data-lang-ar="خبير إداري ومرشحكم لخدمة صلاح الدين" data-lang-en="Administrative Expert & Your Candidate for Salah al-Din">خبير إداري ومرشحكم لخدمة صلاح الدين</h2>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-crown"></i> نظام الأسماء المحجوزة</h1>
+            <p>نظام متكامل لإدارة أسماء الربون المحجوزة وتنظيم عمليات الحجز بسهولة وكفاءة</p>
         </header>
-
-        <section class="section">
-            <h2 class="section-title"><i class="fas fa-graduation-cap"></i><span data-lang-ar="التحصيل العلمي" data-lang-en="Education">التحصيل العلمي</span></h2>
-            <ul>
-                <li data-lang-ar="<strong>دكتوراه في علوم الحاسبات</strong> – المدرسة الوطنية للإلكترونيك والاتصالات، جامعة صفاقس – تونس." data-lang-en="<strong>PhD in Computer Science</strong> – National School of Electronics and Telecommunications, Sfax University – Tunisia."><strong>دكتوراه في علوم الحاسبات</strong> – المدرسة الوطنية للإلكترونيك والاتصالات، جامعة صفاقس – تونس.</li>
-                <li data-lang-ar="<strong>ماجستير في علوم الحاسبات والمعلومات</strong> – جامعة بنها، مصر." data-lang-en="<strong>Master's in Computer Science and Information</strong> – Benha University, Egypt."><strong>ماجستير في علوم الحاسبات والمعلومات</strong> – جامعة بنها، مصر.</li>
-            </ul>
-        </section>
-
-        <section class="section">
-            <h2 class="section-title"><i class="fas fa-briefcase"></i><span data-lang-ar="الخبرة الوظيفية والإدارية" data-lang-en="Professional & Administrative Experience">الخبرة الوظيفية والإدارية</span></h2>
-            <ul>
-                <li data-lang-ar="<strong>مدير عام الشؤون الفنية والإدارية</strong> – الجهاز المركزي للتقييس والسيطرة النوعية – وزارة التخطيط." data-lang-en="<strong>Director General of Technical and Administrative Affairs</strong> – Central Organization for Standardization and Quality Control – Ministry of Planning."><strong>مدير عام الشؤون الفنية والإدارية</strong> – الجهاز المركزي للتقييس والسيطرة النوعية – وزارة التخطيط.</li>
-                <li data-lang-ar="<strong>مشاركة فاعلة</strong> في الاجتماعات العراقية–المصرية على مستوى الخبراء في بغداد." data-lang-en="<strong>Active participation</strong> in Iraqi-Egyptian expert-level meetings in Baghdad."><strong>مشاركة فاعلة</strong> في الاجتماعات العراقية–المصرية على مستوى الخبراء في بغداد.</li>
-                <li data-lang-ar="<strong>دور قيادي</strong> في متابعة المشاريع الحكومية والتعداد السكاني في المحافظات، ومنها صلاح الدين." data-lang-en="<strong>Leadership role</strong> in monitoring government projects and the census in the provinces, including Salah al-Din."><strong>دور قيادي</strong> في متابعة المشاريع الحكومية والتعداد السكاني في المحافظات، ومنها صلاح الدين.</li>
-            </ul>
-        </section>
-
-        <section class="section">
-            <h2 class="section-title"><i class="fas fa-bullseye"></i><span data-lang-ar="أهداف البرنامج الانتخابي" data-lang-en="Electoral Program Goals">أهداف البرنامج الانتخابي</span></h2>
-            <ul>
-                <li data-lang-ar="<strong>تطوير البنية التحتية:</strong> العمل على تحسين الخدمات الأساسية من ماء وكهرباء وطرق." data-lang-en="<strong>Infrastructure Development:</strong> Working to improve basic services such as water, electricity, and roads."><strong>تطوير البنية التحتية:</strong> العمل على تحسين الخدمات الأساسية من ماء وكهرباء وطرق.</li>
-                <li data-lang-ar="<strong>دعم الشباب:</strong> إطلاق مبادرات لتوفير فرص عمل وتدريب للشباب في المحافظة." data-lang-en="<strong>Youth Support:</strong> Launching initiatives to provide job and training opportunities for youth in the province."><strong>دعم الشباب:</strong> إطلاق مبادرات لتوفير فرص عمل وتدريب للشباب في المحافظة.</li>
-                <li data-lang-ar="<strong>تعزيز الشفافية:</strong> محاربة الفساد وضمان إدارة نزيهة للموارد الحكومية." data-lang-en="<strong>Enhancing Transparency:</strong> Combating corruption and ensuring fair management of government resources."><strong>تعزيز الشفافية:</strong> محاربة الفساد وضمان إدارة نزيهة للموارد الحكومية.</li>
-            </ul>
-        </section>
-
-        <section class="section">
-            <h2 class="section-title"><i class="fas fa-images"></i><span data-lang-ar="معرض الصور" data-lang-en="Photo Gallery">معرض الصور</span></h2>
-            <div class="slider-container">
-                <div class="slider">
-                    <!-- استبدل هذه الروابط بصور حقيقية -->
-                    <div class="slide" data-src="image1.jpg">
-                        <img src="https://via.placeholder.com/800x450/ff9800/ffffff?text=Meeting+1" alt="صورة من اجتماع">
+        
+        <div class="main-content">
+            <!-- بطاقة إدخال الحجز -->
+            <section class="reservation-card">
+                <h2><i class="fas fa-calendar-plus"></i> حجز جديد</h2>
+                
+                <div id="alertMessage" class="alert" style="display: none;"></div>
+                
+                <form id="reservationForm">
+                    <div class="form-group">
+                        <label for="ribbonName"><i class="fas fa-user"></i> اسم الربون</label>
+                        <input type="text" id="ribbonName" class="form-control" placeholder="أدخل اسم الربون" required>
                     </div>
-                    <div class="slide" data-src="image2.jpg">
-                        <img src="https://via.placeholder.com/800x450/ffad42/ffffff?text=Field+Visit" alt="صورة من جولة ميدانية">
+                    
+                    <div class="form-group">
+                        <label for="peopleCount"><i class="fas fa-users"></i> عدد الأفراد</label>
+                        <input type="number" id="peopleCount" class="form-control" min="1" max="100" value="1" required>
                     </div>
-                    <div class="slide" data-src="image3.jpg">
-                        <img src="https://via.placeholder.com/800x450/ffc107/ffffff?text=Conference" alt="صورة من مؤتمر">
+                    
+                    <div class="form-group">
+                        <label for="comboBox"><i class="fas fa-list"></i> رقم أبو حاتم</label>
+                        <div class="combo-box">
+                            <select id="comboBox" class="form-control" required>
+                                <option value="" disabled selected>اختر رقم أبو حاتم</option>
+                                <option value="رقم 1 - الحساب الأساسي">رقم 1 - الحساب الأساسي</option>
+                                <option value="رقم 2 - حساب المبيعات">رقم 2 - حساب المبيعات</option>
+                                <option value="رقم 3 - حساب المشتريات">رقم 3 - حساب المشتريات</option>
+                                <option value="رقم 4 - حساب المصروفات">رقم 4 - حساب المصروفات</option>
+                                <option value="رقم 5 - حساب الإيرادات">رقم 5 - حساب الإيرادات</option>
+                                <option value="رقم 6 - حساب المخزون">رقم 6 - حساب المخزون</option>
+                                <option value="رقم 7 - حساب الأصول">رقم 7 - حساب الأصول</option>
+                                <option value="رقم 8 - حساب الخصوم">رقم 8 - حساب الخصوم</option>
+                                <option value="رقم 9 - حساب رأس المال">رقم 9 - حساب رأس المال</option>
+                                <option value="رقم 10 - حساب الاحتياطيات">رقم 10 - حساب الاحتياطيات</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="slide" data-src="image4.jpg">
-                        <img src="https://via.placeholder.com/800x450/ffb74d/ffffff?text=Public+Event" alt="صورة من فعالية عامة">
+                    
+                    <button type="submit" class="btn pulse">
+                        <i class="fas fa-check-circle"></i> تأكيد الحجز
+                    </button>
+                </form>
+            </section>
+            
+            <!-- قائمة الحجوزات -->
+            <section class="reservations-container">
+                <div class="reservations-header">
+                    <h2><i class="fas fa-list-alt"></i> الحجوزات المسجلة</h2>
+                    <div class="stats">
+                        <div class="stat-item" id="totalReservations">الإجمالي: 0</div>
+                        <div class="stat-item" id="totalPeople">الأفراد: 0</div>
                     </div>
                 </div>
-                <a class="slider-arrow prev" onclick="plusSlides(-1)">&#10094;</a>
-                <a class="slider-arrow next" onclick="plusSlides(1)">&#10095;</a>
-            </div>
-            <div class="slider-dots"></div>
-            <div class="slider-controls">
-                <button class="download-btn" onclick="downloadCurrentImage()">
-                    <i class="fas fa-download"></i>
-                    <span data-lang-ar="تحميل الصورة الحالية" data-lang-en="Download Current Image">تحميل الصورة الحالية</span>
-                </button>
-            </div>
-        </section>
-
-        <footer class="footer">
-          <button class="share-btn" onclick="shareCV()"><i class="fas fa-share-alt"></i><span data-lang-ar="شارك السيرة الذاتية" data-lang-en="Share CV">شارك السيرة الذاتية</span></button>
-          <div class="designer-credit" data-lang-ar="✨ مصمم الموقع: أحمد سلام الخزرجي ✨" data-lang-en="✨ Designed by: Ahmed Salam Al-Khazraji ✨">✨ مصمم الموقع: أحمد سلام الخزرجي ✨</div>
+                
+                <div class="reservations-list" id="reservationsList">
+                    <!-- الحجوزات ستضاف هنا ديناميكياً -->
+                    <div class="empty-state">
+                        <i class="fas fa-clipboard-list"></i>
+                        <h3>لا توجد حجوزات حالياً</h3>
+                        <p>قم بإضافة حجز جديد باستخدام النموذج على اليسار</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <footer>
+            <p>جميع الحقوق محفوظة &copy; <span id="currentYear"></span> - نظام الأسماء المحجوزة</p>
+            <p>تم التطوير بواسطة فريق النظام</p>
         </footer>
     </div>
 
     <script>
-        // Language Toggle
-        function toggleLanguage() {
-            const html = document.documentElement;
-            const currentLang = html.lang === 'ar' ? 'en' : 'ar';
-            html.lang = currentLang;
-            html.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
-            document.body.classList.toggle('lang-en');
-            document.querySelectorAll('[data-lang-ar]').forEach(el => {
-                const key = el.dataset.langAr;
-                if (el.tagName === 'IMG') {
-                    el.alt = el.getAttribute(`data-lang-alt-${currentLang}`);
-                } else {
-                    el.innerHTML = el.getAttribute(`data-lang-${currentLang}`);
-                }
-            });
-            document.querySelector('.lang-switch').textContent = currentLang === 'ar' ? 'EN' : 'AR';
+        // بيانات الحجوزات المخزنة محلياً
+        let reservations = JSON.parse(localStorage.getItem('reservations')) || [];
+        let editMode = false;
+        let editId = null;
+        
+        // تحديث السنة الحالية في التذييل
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // تهيئة النظام
+        document.addEventListener('DOMContentLoaded', function() {
+            updateStats();
+            renderReservations();
+            
+            // إضافة بعض الحجوزات الافتراضية للعرض
+            if (reservations.length === 0) {
+                addSampleReservations();
+            }
+        });
+        
+        // إضافة حجوزات افتراضية للعرض
+        function addSampleReservations() {
+            const sampleReservations = [
+                {id: 1, ribbonName: "ربون الملكية", peopleCount: 5, comboOption: "رقم 1 - الحساب الأساسي"},
+                {id: 2, ribbonName: "ربون الإدارة", peopleCount: 3, comboOption: "رقم 3 - حساب المشتريات"},
+                {id: 3, ribbonName: "ربون المبيعات", peopleCount: 8, comboOption: "رقم 2 - حساب المبيعات"}
+            ];
+            
+            reservations.push(...sampleReservations);
+            saveToLocalStorage();
+            renderReservations();
+            updateStats();
         }
-
-        // Share Function
-        function shareCV() {
-            const text = document.documentElement.lang === 'ar' ? "اطلع على السيرة الذاتية للدكتور عمر عادل الخزرجي" : "Check out the CV of Dr. Omar Adel Al-Khazraji";
-            if (navigator.share) {
-                navigator.share({
-                    title: document.title,
-                    text: text,
-                    url: window.location.href
-                }).catch(console.error);
+        
+        // معالجة إرسال النموذج
+        document.getElementById('reservationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const ribbonName = document.getElementById('ribbonName').value.trim();
+            const peopleCount = parseInt(document.getElementById('peopleCount').value);
+            const comboOption = document.getElementById('comboBox').value;
+            
+            if (!ribbonName || !comboOption) {
+                showAlert('يرجى ملء جميع الحقول المطلوبة', 'error');
+                return;
+            }
+            
+            if (editMode) {
+                // تحديث الحجر الموجود
+                updateReservation(editId, ribbonName, peopleCount, comboOption);
+                editMode = false;
+                editId = null;
+                document.querySelector('.btn').innerHTML = '<i class="fas fa-check-circle"></i> تأكيد الحجز';
+                document.querySelector('.btn').classList.add('pulse');
             } else {
-                navigator.clipboard.writeText(window.location.href).then(() => {
-                    alert(document.documentElement.lang === 'ar' ? "✅ تم نسخ رابط السيرة الذاتية!" : "✅ CV link copied!");
-                });
+                // إضافة حجز جديد
+                addReservation(ribbonName, peopleCount, comboOption);
+            }
+            
+            // إعادة تعيين النموذج
+            this.reset();
+        });
+        
+        // إضافة حجز جديد
+        function addReservation(ribbonName, peopleCount, comboOption) {
+            const newReservation = {
+                id: Date.now(),
+                ribbonName,
+                peopleCount,
+                comboOption,
+                date: new Date().toLocaleDateString('ar-SA')
+            };
+            
+            reservations.push(newReservation);
+            saveToLocalStorage();
+            renderReservations();
+            updateStats();
+            showAlert('تم إضافة الحجز بنجاح', 'success');
+        }
+        
+        // تحديث حجر موجود
+        function updateReservation(id, ribbonName, peopleCount, comboOption) {
+            const index = reservations.findIndex(res => res.id === id);
+            
+            if (index !== -1) {
+                reservations[index].ribbonName = ribbonName;
+                reservations[index].peopleCount = peopleCount;
+                reservations[index].comboOption = comboOption;
+                
+                saveToLocalStorage();
+                renderReservations();
+                updateStats();
+                showAlert('تم تحديث الحجز بنجاح', 'success');
             }
         }
-
-        // --- Advanced Slider Logic ---
-        let slideIndex = 1;
-        let autoPlayInterval;
-        const slides = document.querySelectorAll(".slide");
-        const dotsContainer = document.querySelector(".slider-dots");
-
-        if (slides.length > 0) {
-            // Create dots
-            for (let i = 0; i < slides.length; i++) {
-                const dot = document.createElement("span");
-                dot.classList.add("dot");
-                dot.setAttribute("onclick", `currentSlide(${i + 1})`);
-                dotsContainer.appendChild(dot);
+        
+        // حذف حجر
+        function deleteReservation(id) {
+            if (confirm('هل أنت متأكد من حذف هذا الحجز؟')) {
+                reservations = reservations.filter(res => res.id !== id);
+                saveToLocalStorage();
+                renderReservations();
+                updateStats();
+                showAlert('تم حذف الحجز بنجاح', 'success');
             }
-            const dots = document.querySelectorAll(".dot");
-
-            function showSlides(n) {
-                if (n > slides.length) { slideIndex = 1; }
-                if (n < 1) { slideIndex = slides.length; }
+        }
+        
+        // تحميل بيانات الحجر للتعديل
+        function loadReservationForEdit(id) {
+            const reservation = reservations.find(res => res.id === id);
+            
+            if (reservation) {
+                document.getElementById('ribbonName').value = reservation.ribbonName;
+                document.getElementById('peopleCount').value = reservation.peopleCount;
+                document.getElementById('comboBox').value = reservation.comboOption;
                 
-                document.querySelector('.slider').style.transform = `translateX(-${(slideIndex - 1) * 100}%)`;
+                editMode = true;
+                editId = id;
                 
-                dots.forEach(dot => dot.classList.remove("active"));
-                dots[slideIndex - 1].classList.add("active");
+                const submitBtn = document.querySelector('.btn');
+                submitBtn.innerHTML = '<i class="fas fa-edit"></i> تحديث الحجز';
+                submitBtn.classList.remove('pulse');
+                
+                // تمرير المؤشر إلى بداية الصفحة
+                document.querySelector('.reservation-card').scrollIntoView({ behavior: 'smooth' });
+                
+                showAlert('يمكنك الآن تعديل بيانات الحجز', 'success');
             }
-
-            function plusSlides(n) {
-                stopAutoPlay();
-                showSlides(slideIndex += n);
-                startAutoPlay();
+        }
+        
+        // عرض الحجوزات
+        function renderReservations() {
+            const reservationsList = document.getElementById('reservationsList');
+            
+            if (reservations.length === 0) {
+                reservationsList.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-clipboard-list"></i>
+                        <h3>لا توجد حجوزات حالياً</h3>
+                        <p>قم بإضافة حجز جديد باستخدام النموذج على اليسار</p>
+                    </div>
+                `;
+                return;
             }
-
-            function currentSlide(n) {
-                stopAutoPlay();
-                showSlides(slideIndex = n);
-                startAutoPlay();
-            }
-
-            function startAutoPlay() {
-                stopAutoPlay();
-                if (slides.length > 1) {
-                    autoPlayInterval = setInterval(() => {
-                        plusSlides(1);
-                    }, 5000);
-                }
-            }
-
-            function stopAutoPlay() {
-                clearInterval(autoPlayInterval);
-            }
-
-            function downloadCurrentImage() {
-                const currentSlideElement = slides[slideIndex - 1];
-                const imageUrl = currentSlideElement.dataset.src;
-                const link = document.createElement('a');
-                link.href = imageUrl;
-                const filename = `Dr-Omar-Image-${slideIndex}.jpg`;
-                link.download = filename;
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-            }
-
-            document.addEventListener("DOMContentLoaded", () => {
-                showSlides(slideIndex);
-                startAutoPlay();
+            
+            reservationsList.innerHTML = '';
+            
+            reservations.forEach(reservation => {
+                const reservationElement = document.createElement('div');
+                reservationElement.className = 'reservation-item';
+                
+                reservationElement.innerHTML = `
+                    <div class="reservation-info">
+                        <h3>${reservation.ribbonName}</h3>
+                        <div class="reservation-details">
+                            <span><i class="fas fa-users"></i> ${reservation.peopleCount} أفراد</span>
+                            <span><i class="fas fa-hashtag"></i> ${reservation.comboOption}</span>
+                            <span><i class="fas fa-calendar"></i> ${reservation.date}</span>
+                        </div>
+                    </div>
+                    <div class="reservation-actions">
+                        <button class="action-btn edit-btn" onclick="loadReservationForEdit(${reservation.id})">
+                            <i class="fas fa-edit"></i> تعديل
+                        </button>
+                        <button class="action-btn delete-btn" onclick="deleteReservation(${reservation.id})">
+                            <i class="fas fa-trash"></i> حذف
+                        </button>
+                    </div>
+                `;
+                
+                reservationsList.appendChild(reservationElement);
             });
         }
+        
+        // تحديث الإحصائيات
+        function updateStats() {
+            const totalReservations = reservations.length;
+            const totalPeople = reservations.reduce((sum, res) => sum + res.peopleCount, 0);
+            
+            document.getElementById('totalReservations').textContent = `الإجمالي: ${totalReservations}`;
+            document.getElementById('totalPeople').textContent = `الأفراد: ${totalPeople}`;
+        }
+        
+        // حفظ البيانات في التخزين المحلي
+        function saveToLocalStorage() {
+            localStorage.setItem('reservations', JSON.stringify(reservations));
+        }
+        
+        // عرض رسائل التنبيه
+        function showAlert(message, type) {
+            const alertDiv = document.getElementById('alertMessage');
+            
+            alertDiv.textContent = message;
+            alertDiv.className = `alert alert-${type}`;
+            alertDiv.style.display = 'flex';
+            
+            // إضافة زر الإغلاق
+            const closeBtn = document.createElement('button');
+            closeBtn.className = 'close-alert';
+            closeBtn.innerHTML = '<i class="fas fa-times"></i>';
+            closeBtn.onclick = function() {
+                alertDiv.style.display = 'none';
+            };
+            
+            alertDiv.appendChild(closeBtn);
+            
+            // إخفاء الرسالة تلقائياً بعد 5 ثوانٍ
+            setTimeout(() => {
+                alertDiv.style.display = 'none';
+            }, 5000);
+        }
+        
+        // إضافة تأثيرات عند تحميل الصفحة
+        setTimeout(() => {
+            document.querySelector('header').style.animation = 'fadeIn 1s';
+            document.querySelector('.reservation-card').style.animation = 'fadeIn 1s 0.2s both';
+            document.querySelector('.reservations-container').style.animation = 'fadeIn 1s 0.4s both';
+        }, 100);
     </script>
-
 </body>
 </html>
-```
